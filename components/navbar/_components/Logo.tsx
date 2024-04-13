@@ -8,9 +8,9 @@ const Logo = () => {
         <Image
           src="/logo/logo.png"
           alt="botion logo"
-          height={125}
-          width={125}
-          className="w-20"
+          height={50}
+          width={50}
+          className="w-15"
         />
       </Link>
     </>

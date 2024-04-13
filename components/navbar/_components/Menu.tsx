@@ -14,6 +14,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import {
+  PiBookOpenTextLight,
+  PiFileThin,
+  PiSparkleLight,
+  PiTargetLight,
+} from "react-icons/pi";
+
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",
@@ -54,43 +61,86 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Menu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Product</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
+            <div className="flex">
+              <ul className="grid p-2 md:w-[480px] lg:w-[250px] hover:cursor-pointer border-r">
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiBookOpenTextLight className="text-2xl mr-2 text-red-600" />
+                  <div>
+                    <p>Wikis</p>
+                    <p className="text-gray-400 text-sm font-light">
+                      Centralize your knowledge
                     </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiTargetLight className="text-2xl mr-2 text-blue-600" />
+                  <div>
+                    <p>Projects</p>
+                    <p className="text-gray-400 text-sm font-light">
+                      Centralize your Projects
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiFileThin className="text-2xl mr-2 text-yellow-600" />
+                  <div>
+                    <p>Docs</p>
+                    <p className="text-gray-400 text-sm font-light">
+                      Simple & Powerful
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiSparkleLight className="text-2xl mr-2 text-purple-600" />
+                  <div>
+                    <p>Botion AI</p>
+                    <p className="text-gray-400 text-sm font-light">
+                      Integrated AI assistant
+                    </p>
+                  </div>
+                </div>
+              </ul>
+              <div>
+                <ul className="grid p-2 md:w-[480px] lg:w-[250px] hover:cursor-pointer border-r">
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <p>Template Gallery</p>
+                      <p className="text-gray-400 text-sm font-light">
+                        Setups to get you started
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <p>Customer Stories</p>
+                      <p className="text-gray-400 text-sm font-light">
+                        See how teams uses Botion
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <p>Connections</p>
+                      <p className="text-gray-400 text-sm font-light">
+                        connect your tools to Botion
+                      </p>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Download</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -105,10 +155,45 @@ export function Menu() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Pricing
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
