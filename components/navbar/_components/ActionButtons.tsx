@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { X, AlignJustify } from "lucide-react";
 import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 const ActionButtons = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const ActionButtons = () => {
     <div className="pr-2">
       <div className="flex items-center justify-center">
         <div className="flex xl:space-x-4">
-          <Link href="/contact-sales" className="hidden lg:flex items-center">
+          <Link href="/contact-sales" className="hidden xl:flex items-center">
             Request a Demo
           </Link>
           <div className="text-gray-300 font-thin lg:flex hidden items-center">
@@ -27,29 +28,35 @@ const ActionButtons = () => {
             <div>
               <Button
                 variant={"outline"}
-                className="hidden lg:flex items-center border-none text-md"
+                className="hidden xl:flex items-center border-none text-md"
               >
                 Log In
               </Button>
             </div>
             <div>
-              <Button className="hidden lg:flex items-center border-none text-md font-semibold text-sm">
+              <Button className="hidden xl:flex items-center border-none text-md font-semibold text-sm">
                 Get Botion Free
               </Button>
             </div>
           </div>
-          <div
-            className="flex lg:hidden items-center justify-center mr-2"
-            onClick={toggleOpen}
-          >
-            {isOpen ? (
-              <div>
-                <X className="h-5 w-5 " />
-              </div>
-            ) : (
-              <AlignJustify className="h-5 w-5 " />
-            )}
-          </div>
+          {isOpen ? (
+            <div
+              className="flex xl:hidden items-center justify-center"
+              onClick={toggleOpen}
+            >
+              <X className="h-5 w-5 " />
+            </div>
+          ) : (
+            <div
+              className="flex xl:hidden items-center justify-center"
+              onClick={toggleOpen}
+            >
+              <AlignJustify className="h-7 w-7 " />{" "}
+            </div>
+          )}
+          {isOpen && (
+              <MobileMenu onClose={toggleOpen} />
+          )}
         </div>
       </div>
     </div>
